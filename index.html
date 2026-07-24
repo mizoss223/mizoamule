@@ -265,6 +265,33 @@
     .cta h2 { font-size: clamp(2.4rem, 5vw, 4.4rem); letter-spacing: -.055em; margin-bottom: 14px; }
     .cta p { max-width: 650px; margin: 0 auto 28px; color: rgba(255,255,255,.86); }
 
+    .contact-links {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .contact-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      background: rgba(255,255,255,.1);
+      border: 1px solid rgba(255,255,255,.3);
+      border-radius: 10px;
+      color: rgba(255,255,255,.9);
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+    }
+
+    .contact-btn:hover {
+      background: rgba(255,255,255,.2);
+      border-color: rgba(255,255,255,.6);
+      transform: translateY(-2px);
+    }
+
     footer { padding: 36px 0; color: var(--muted); }
     .footer-inner { display: flex; justify-content: space-between; gap: 20px; border-top: 1px solid var(--line); padding-top: 28px; }
 
@@ -285,6 +312,8 @@
       .footer-inner { flex-direction: column; }
       .floating-card { width: 150px; padding: 14px; }
       .phone { width: 230px; height: 430px; }
+      .contact-links { flex-direction: column; }
+      .contact-btn { width: 100%; justify-content: center; }
     }
   </style>
 </head>
@@ -488,7 +517,10 @@
         <div class="cta">
           <h2>Ready to make your brand stand out?</h2>
           <p>Let Mizoamule handle the strategy, content, social media, and ads while you focus on running your business.</p>
-          <a class="btn btn-secondary" href="mailto:einshin143@gmail.com">einshin143@gmail.com</a>
+          <div class="contact-links">
+            <a class="contact-btn" href="tel:+961-81-354-507">📞 +961 81 354 507</a>
+            <a class="contact-btn" href="mailto:einshin143@gmail.com">📧 einshin143@gmail.com</a>
+          </div>
         </div>
       </div>
     </section>
