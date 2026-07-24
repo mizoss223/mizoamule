@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mizoamule — Creative Marketing Agency</title>
+  <meta name="description" content="Mizoamule is a two-person creative marketing agency specializing in content creation, video production, social media management, Meta Ads, TikTok Ads, and growth strategy." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0a0a0f;
+      --surface: #12121a;
+      --surface-2: #171723;
+      --text: #f8f8fb;
+      --muted: #aaaabd;
+      --line: rgba(255,255,255,.1);
+      --accent: #8b5cf6;
+      --accent-2: #ec4899;
+      --accent-3: #22d3ee;
+      --shadow: 0 30px 80px rgba(0,0,0,.35);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 10% 0%, rgba(139,92,246,.2), transparent 28%),
+        radial-gradient(circle at 90% 10%, rgba(236,72,153,.16), transparent 28%),
+        var(--bg);
+      font-family: "DM Sans", sans-serif;
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; }
+    .container { width: min(1160px, calc(100% - 40px)); margin: auto; }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(10,10,15,.72);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-inner {
+      min-height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .logo {
+      font-family: "Manrope", sans-serif;
+      font-weight: 800;
+      font-size: 1.45rem;
+      letter-spacing: -.04em;
+    }
+    .logo span {
+      background: linear-gradient(90deg, var(--accent), var(--accent-2), var(--accent-3));
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+    .nav-links { display: flex; gap: 26px; color: var(--muted); font-size: .95rem; }
+    .nav-links a:hover { color: var(--text); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 48px;
+      padding: 0 20px;
+      border-radius: 14px;
+      font-weight: 700;
+      border: 1px solid transparent;
+      transition: .25s ease;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      box-shadow: 0 15px 35px rgba(139,92,246,.28);
+    }
+    .btn-primary:hover { transform: translateY(-2px); }
+    .btn-secondary { border-color: var(--line); background: rgba(255,255,255,.04); }
+    .btn-secondary:hover { background: rgba(255,255,255,.08); }
+
+    .hero { padding: 110px 0 80px; }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      align-items: center;
+      gap: 70px;
+    }
+    .eyebrow {
+      display: inline-flex;
+      padding: 8px 12px;
+      border: 1px solid rgba(139,92,246,.45);
+      background: rgba(139,92,246,.09);
+      color: #d8caff;
+      border-radius: 999px;
+      text-transform: uppercase;
+      font-size: .75rem;
+      font-weight: 800;
+      letter-spacing: .14em;
+    }
+    h1, h2, h3 { font-family: "Manrope", sans-serif; line-height: 1.12; margin-top: 0; }
+    h1 { font-size: clamp(3rem, 7vw, 6.2rem); letter-spacing: -.07em; margin: 24px 0; }
+    h1 em {
+      font-style: normal;
+      background: linear-gradient(90deg, #fff, #d8caff 35%, #f6b8d5 70%, #baf6ff);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+    .hero p { max-width: 680px; color: var(--muted); font-size: 1.12rem; }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 34px; }
+    .mini-proof { display: flex; gap: 28px; flex-wrap: wrap; margin-top: 38px; color: var(--muted); }
+    .mini-proof strong { color: var(--text); display: block; font-size: 1.25rem; }
+
+    .hero-card {
+      position: relative;
+      min-height: 520px;
+      border-radius: 30px;
+      overflow: hidden;
+      background:
+        linear-gradient(160deg, rgba(139,92,246,.55), rgba(236,72,153,.18) 45%, rgba(34,211,238,.18)),
+        #151521;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(255,255,255,.14);
+    }
+    .hero-card:before,
+    .hero-card:after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(8px);
+    }
+    .hero-card:before { width: 250px; height: 250px; background: rgba(255,255,255,.12); top: -70px; right: -70px; }
+    .hero-card:after { width: 220px; height: 220px; background: rgba(34,211,238,.16); bottom: -70px; left: -60px; }
+    .phone {
+      width: 260px;
+      height: 480px;
+      background: #0d0d12;
+      border: 8px solid #20202b;
+      border-radius: 38px;
+      position: absolute;
+      top: 38px;
+      left: 50%;
+      transform: translateX(-50%) rotate(-5deg);
+      box-shadow: 0 30px 60px rgba(0,0,0,.45);
+      overflow: hidden;
+      z-index: 2;
+    }
+    .phone-screen {
+      height: 100%;
+      padding: 26px 18px;
+      background:
+        linear-gradient(rgba(0,0,0,.18), rgba(0,0,0,.4)),
+        linear-gradient(135deg, #8b5cf6, #ec4899 50%, #22d3ee);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+    .reel-tag { font-size: .72rem; font-weight: 800; text-transform: uppercase; letter-spacing: .12em; }
+    .reel-title { font-family: "Manrope"; font-size: 2rem; line-height: 1.05; margin: 10px 0; }
+    .floating-card {
+      position: absolute;
+      z-index: 3;
+      width: 190px;
+      padding: 18px;
+      border: 1px solid rgba(255,255,255,.18);
+      background: rgba(12,12,18,.75);
+      backdrop-filter: blur(18px);
+      border-radius: 20px;
+      box-shadow: 0 20px 50px rgba(0,0,0,.3);
+    }
+    .fc-1 { left: 20px; top: 60px; }
+    .fc-2 { right: 18px; bottom: 45px; }
+    .floating-card small { color: var(--muted); }
+    .floating-card strong { display: block; font-size: 1.35rem; margin-top: 5px; }
+
+    section { padding: 90px 0; }
+    .section-head { max-width: 720px; margin-bottom: 42px; }
+    .section-head h2 { font-size: clamp(2.2rem, 5vw, 4rem); letter-spacing: -.055em; margin: 14px 0; }
+    .section-head p { color: var(--muted); }
+
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,.055), rgba(255,255,255,.025));
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 28px;
+      transition: .25s ease;
+    }
+    .card:hover { transform: translateY(-5px); border-color: rgba(139,92,246,.45); }
+    .icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      font-size: 1.2rem;
+      background: linear-gradient(135deg, rgba(139,92,246,.25), rgba(236,72,153,.22));
+      margin-bottom: 20px;
+    }
+    .card h3 { margin-bottom: 10px; }
+    .card p { color: var(--muted); margin-bottom: 0; font-size: .96rem; }
+
+    .two-person {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+    .role {
+      padding: 34px;
+      border-radius: 26px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+    }
+    .role .number { font-family: "Manrope"; font-size: 3rem; color: #c7b4ff; font-weight: 800; }
+    .role ul { color: var(--muted); padding-left: 20px; }
+    .role li { margin: 9px 0; }
+
+    .pillars-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
+    .pillar {
+      min-height: 200px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: var(--surface-2);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 22px;
+    }
+    .pillar span { color: #c8c8d8; font-size: .9rem; }
+    .pillar h3 { font-size: 1.2rem; margin: 0; }
+
+    .plans-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: stretch; }
+    .plan { position: relative; padding: 32px; border-radius: 24px; background: var(--surface); border: 1px solid var(--line); }
+    .plan.featured { border-color: rgba(236,72,153,.5); box-shadow: 0 20px 55px rgba(236,72,153,.12); }
+    .badge { position: absolute; top: 18px; right: 18px; font-size: .72rem; font-weight: 800; background: linear-gradient(135deg, var(--accent), var(--accent-2)); padding: 7px 10px; border-radius: 999px; }
+    .price { font-size: 2rem; font-weight: 800; font-family: "Manrope"; margin: 8px 0 18px; }
+    .plan ul { color: var(--muted); padding-left: 20px; min-height: 245px; }
+    .plan li { margin: 10px 0; }
+
+    .process { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; counter-reset: step; }
+    .step { counter-increment: step; border-top: 1px solid var(--line); padding-top: 22px; }
+    .step:before { content: "0" counter(step); color: #b79bff; font-family: "Manrope"; font-weight: 800; }
+    .step h3 { margin: 12px 0 8px; }
+    .step p { color: var(--muted); }
+
+    .cta {
+      border-radius: 30px;
+      padding: 58px;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(255,255,255,.18), transparent 25%),
+        linear-gradient(135deg, #6d3be8, #c83e91 58%, #1ba6bf);
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+    .cta h2 { font-size: clamp(2.4rem, 5vw, 4.4rem); letter-spacing: -.055em; margin-bottom: 14px; }
+    .cta p { max-width: 650px; margin: 0 auto 28px; color: rgba(255,255,255,.86); }
+
+    footer { padding: 36px 0; color: var(--muted); }
+    .footer-inner { display: flex; justify-content: space-between; gap: 20px; border-top: 1px solid var(--line); padding-top: 28px; }
+
+    @media (max-width: 980px) {
+      .hero-grid, .two-person { grid-template-columns: 1fr; }
+      .services-grid, .plans-grid { grid-template-columns: repeat(2, 1fr); }
+      .pillars-grid { grid-template-columns: repeat(2, 1fr); }
+      .process { grid-template-columns: repeat(2, 1fr); }
+      .hero-card { min-height: 480px; }
+    }
+    @media (max-width: 680px) {
+      .nav-links { display: none; }
+      .nav .btn { display: none; }
+      .hero { padding-top: 75px; }
+      .hero-grid { gap: 40px; }
+      .services-grid, .plans-grid, .pillars-grid, .process { grid-template-columns: 1fr; }
+      .cta { padding: 38px 24px; }
+      .footer-inner { flex-direction: column; }
+      .floating-card { width: 150px; padding: 14px; }
+      .phone { width: 230px; height: 430px; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a class="logo" href="#home"><span>Mizoamule</span></a>
+      <div class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#pillars">Pillars</a>
+        <a href="#plans">Plans</a>
+        <a href="#process">Process</a>
+      </div>
+      <a class="btn btn-primary" href="#contact">Let's work together</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">Creative strategy • Content • Paid ads</span>
+          <h1>We make your brand <em>impossible to ignore.</em></h1>
+          <p>Mizoamule is a two-person marketing agency combining professional video production with high-converting advertising, social media management, and content strategy.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#plans">View our plans</a>
+            <a class="btn btn-secondary" href="#services">Explore services</a>
+          </div>
+          <div class="mini-proof">
+            <div><strong>2 experts</strong>One complete team</div>
+            <div><strong>360°</strong>Content + ads</div>
+            <div><strong>1 goal</strong>Real growth</div>
+          </div>
+        </div>
+
+        <div class="hero-card" aria-label="Creative social media campaign preview">
+          <div class="floating-card fc-1"><small>Average campaign focus</small><strong>Reach + Sales</strong></div>
+          <div class="phone">
+            <div class="phone-screen">
+              <span class="reel-tag">Mizoamule production</span>
+              <div class="reel-title">Content that stops the scroll.</div>
+              <span>Strategy • Shoot • Edit • Promote</span>
+            </div>
+          </div>
+          <div class="floating-card fc-2"><small>What we optimize</small><strong>Better results</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Everything your brand needs</span>
+          <h2>From the first idea to the final ad.</h2>
+          <p>We manage your full digital presence so your brand looks consistent, professional, active, and built to convert.</p>
+        </div>
+        <div class="services-grid">
+          <article class="card"><div class="icon">🎬</div><h3>Video Production</h3><p>Professional filming for reels, TikToks, product videos, campaigns, testimonials, behind-the-scenes content, and brand storytelling.</p></article>
+          <article class="card"><div class="icon">✂️</div><h3>Video Editing</h3><p>Fast-paced edits, captions, transitions, sound design, hooks, and platform-optimized formats designed to keep viewers watching.</p></article>
+          <article class="card"><div class="icon">🧠</div><h3>Content Strategy</h3><p>Monthly content calendars, campaign ideas, creative direction, trend research, content pillars, scripts, and shot lists.</p></article>
+          <article class="card"><div class="icon">📱</div><h3>Social Media Management</h3><p>Account management, posting, scheduling, captions, hashtags, community interaction, profile optimization, and performance reporting.</p></article>
+          <article class="card"><div class="icon">📣</div><h3>Meta Ads</h3><p>Facebook and Instagram advertising, campaign setup, targeting, retargeting, creative testing, budget management, and optimization.</p></article>
+          <article class="card"><div class="icon">🎵</div><h3>TikTok Ads</h3><p>Native TikTok ad creatives, campaign setup, audience targeting, Spark Ads, testing, and optimization for reach, leads, and sales.</p></article>
+          <article class="card"><div class="icon">✍️</div><h3>Copywriting</h3><p>Captions, hooks, scripts, ad copy, call-to-actions, offers, and brand messages written to sound clear, engaging, and persuasive.</p></article>
+          <article class="card"><div class="icon">🎨</div><h3>Creative Design</h3><p>Social media posts, carousels, stories, campaign visuals, highlight covers, ad creatives, and branded content templates.</p></article>
+          <article class="card"><div class="icon">📊</div><h3>Analytics & Reporting</h3><p>Monthly performance reports, audience insights, content analysis, campaign results, recommendations, and clear next steps.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Small team, complete service</span>
+          <h2>Two people. Two specialties. One clear vision.</h2>
+        </div>
+        <div class="two-person">
+          <article class="role">
+            <div class="number">01</div>
+            <h3>The Content Creator</h3>
+            <p>The person behind the camera, responsible for transforming your brand into high-quality visual content.</p>
+            <ul>
+              <li>Creative direction and shot planning</li>
+              <li>Professional video recording</li>
+              <li>Product, lifestyle, and campaign shoots</li>
+              <li>Reels, TikToks, testimonials, and brand videos</li>
+              <li>On-location content creation</li>
+            </ul>
+          </article>
+          <article class="role">
+            <div class="number">02</div>
+            <h3>The Growth Marketer</h3>
+            <p>The person who turns content into reach, engagement, leads, and sales through strategy and paid advertising.</p>
+            <ul>
+              <li>Content management and publishing</li>
+              <li>Social media strategy and planning</li>
+              <li>Meta Ads and TikTok Ads</li>
+              <li>Audience research and targeting</li>
+              <li>Campaign testing, optimization, and reporting</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="pillars">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Our content system</span>
+          <h2>The pillars that keep your brand growing.</h2>
+          <p>Every brand needs a balanced content mix. We build your monthly strategy around five essential pillars.</p>
+        </div>
+        <div class="pillars-grid">
+          <article class="pillar"><span>01</span><h3>Educate</h3><p>Tips, tutorials, FAQs, product knowledge, and useful industry information.</p></article>
+          <article class="pillar"><span>02</span><h3>Entertain</h3><p>Trends, relatable ideas, humor, creative concepts, and scroll-stopping videos.</p></article>
+          <article class="pillar"><span>03</span><h3>Build Trust</h3><p>Testimonials, behind-the-scenes content, results, team stories, and proof.</p></article>
+          <article class="pillar"><span>04</span><h3>Connect</h3><p>Brand personality, community interaction, questions, stories, and conversations.</p></article>
+          <article class="pillar"><span>05</span><h3>Convert</h3><p>Offers, launches, product benefits, promotions, calls-to-action, and paid campaigns.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="plans">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Flexible monthly packages</span>
+          <h2>Choose the level of growth your brand needs.</h2>
+          <p>Each plan can be adjusted depending on your goals, industry, campaign size, and monthly advertising budget.</p>
+        </div>
+        <div class="plans-grid">
+          <article class="plan">
+            <h3>Starter Presence</h3>
+            <div class="price">For new brands</div>
+            <ul>
+              <li>Monthly content strategy</li>
+              <li>1 content shoot per month</li>
+              <li>8 edited short-form videos</li>
+              <li>8 social media posts</li>
+              <li>Captions and hashtags</li>
+              <li>Scheduling and publishing</li>
+              <li>Monthly performance summary</li>
+            </ul>
+            <a href="#contact" class="btn btn-secondary">Request pricing</a>
+          </article>
+
+          <article class="plan featured">
+            <span class="badge">Most popular</span>
+            <h3>Growth Engine</h3>
+            <div class="price">Content + ads</div>
+            <ul>
+              <li>Full monthly content strategy</li>
+              <li>2 content shoots per month</li>
+              <li>12–16 edited videos</li>
+              <li>12 social media posts</li>
+              <li>Daily story planning</li>
+              <li>Full social media management</li>
+              <li>Meta or TikTok Ads management</li>
+              <li>Creative testing and optimization</li>
+              <li>Detailed monthly report</li>
+            </ul>
+            <a href="#contact" class="btn btn-primary">Request pricing</a>
+          </article>
+
+          <article class="plan">
+            <h3>Full Scale</h3>
+            <div class="price">For ambitious brands</div>
+            <ul>
+              <li>Advanced multi-platform strategy</li>
+              <li>Weekly content production</li>
+              <li>20+ edited videos per month</li>
+              <li>Full Instagram and TikTok management</li>
+              <li>Meta Ads + TikTok Ads</li>
+              <li>Multiple campaigns and audiences</li>
+              <li>Retargeting and funnel planning</li>
+              <li>Weekly optimization</li>
+              <li>Priority creative support</li>
+            </ul>
+            <a href="#contact" class="btn btn-secondary">Request pricing</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="process">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">How we work</span>
+          <h2>A simple process built for consistent results.</h2>
+        </div>
+        <div class="process">
+          <article class="step"><h3>Discover</h3><p>We understand your business, audience, goals, offers, competitors, and current online presence.</p></article>
+          <article class="step"><h3>Plan</h3><p>We create your strategy, content pillars, monthly calendar, campaign structure, and creative direction.</p></article>
+          <article class="step"><h3>Create</h3><p>We film, edit, design, write, schedule, and prepare all the content needed for the month.</p></article>
+          <article class="step"><h3>Grow</h3><p>We publish, advertise, test, optimize, report, and continuously improve your results.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="cta">
+          <h2>Ready to make your brand stand out?</h2>
+          <p>Let Mizoamule handle the strategy, content, social media, and ads while you focus on running your business.</p>
+          <a class="btn btn-secondary" href="mailto:einshin143@gmail.com">einshin143@gmail.com</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div class="logo"><span>Mizoamule</span></div>
+      <div>Creative content. Smart advertising. Real growth.</div>
+      <div>© <span id="year"></span> Mizoamule</div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
